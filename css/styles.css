@@ -1,3 +1,4 @@
+cat << 'EOF' > css/styles.css
 /* ==========================================
    PORTFOLIO PROFESSIONAL STYLES
    ========================================== */
@@ -24,7 +25,7 @@ body {
   min-height: 100vh;
 }
 
-/* El contenedor principal con el glow de neón */
+/* Contenedor principal con efecto de tarjeta de GitHub */
 .portfolio-card {
   background-color: var(--card-bg);
   border: 1px solid #30363d;
@@ -42,7 +43,6 @@ body {
   box-shadow: 0 0 30px rgba(0, 223, 154, 0.15), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
-/* Avatar y elementos visuales */
 .avatar-container {
   margin-bottom: 24px;
 }
@@ -56,7 +56,6 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
   box-shadow: 0 0 15px rgba(0, 223, 154, 0.2);
 }
 
@@ -83,7 +82,7 @@ h1 {
   margin-bottom: 32px;
 }
 
-/* Badges / Etiquetas tecnológicas */
+/* Badges / Etiquetas */
 .tags-container {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +101,7 @@ h1 {
   font-weight: 500;
 }
 
-/* Botones de acción profesional */
+/* Botones */
 .btn-container {
   display: flex;
   flex-direction: column;
@@ -141,3 +140,4 @@ h1 {
   color: var(--primary-color);
   border-color: var(--primary-color);
 }
+EOF
