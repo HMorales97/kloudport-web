@@ -20,16 +20,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
-    # Primero subimos todo lo general
+    # Sincroniza todo asegurando que AWS mapee bien los formatos como .css
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --delete --exclude ".github/*" --exclude ".git/*" --exclude "*.Identifier"
 
-    # Forzamos a que todo lo que esté en la carpeta css se marque explícitamente como text/css
-    - name: Fix CSS MIME Type
-      run: |
-        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/css/ s3://${{ secrets.AWS_S3_BUCKET }}/css/ --recursive --metadata-directive REPLACE --content-type "text/css"
-
+    # Forzamos una invalidación total absoluta en CloudFront de todos los archivos
     - name: Invalidate CloudFront Cache
       run: |
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
