@@ -1,15 +1,11 @@
-cat << 'EOF' > css/styles.css
 /* ==========================================
-   PORTFOLIO PROFESSIONAL STYLES
+   PORTFOLIO ULTRA DARK TECH STYLES (BLINDADO)
    ========================================== */
-:root {
-  --bg-color: #0d1117;
-  --card-bg: #161b22;
-  --primary-color: #00df9a;
-  --text-main: #ffffff;
-  --text-muted: #8b949e;
-  --btn-secondary: #21262d;
-  --btn-secondary-hover: #30363d;
+
+/* Forzamos al navegador a entender que esta página es 100% oscura siempre */
+html {
+  color-scheme: dark;
+  background-color: #0d1117 !important;
 }
 
 body {
@@ -17,30 +13,30 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  background-color: #0d1117 !important; /* Fondo oscuro de GitHub obligatorio */
+  color: #ffffff !important;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-/* Contenedor principal con efecto de tarjeta de GitHub */
+/* Contenedor principal estilo tarjeta GitHub con glow neón */
 .portfolio-card {
-  background-color: var(--card-bg);
-  border: 1px solid #30363d;
+  background-color: #161b22 !important; /* Gris oscuro de tarjeta */
+  border: 1px solid #30363d !important;
   border-radius: 12px;
   padding: 40px;
   max-width: 450px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0, 223, 154, 0.05), 0 0 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 223, 154, 0.08), 0 0 40px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(0, 223, 154, 0.15), 0 0 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 30px rgba(0, 223, 154, 0.2), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 .avatar-container {
@@ -49,7 +45,7 @@ body {
 
 .avatar-icon {
   background: linear-gradient(135deg, #1f2937, #111827);
-  color: var(--primary-color);
+  color: #00df9a !important; /* Verde neón */
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -60,6 +56,7 @@ body {
 }
 
 h1 {
+  color: #ffffff !important;
   font-size: 28px;
   font-weight: 700;
   margin: 0 0 8px 0;
@@ -67,7 +64,7 @@ h1 {
 }
 
 .subtitle {
-  color: var(--primary-color);
+  color: #00df9a !important;
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
@@ -76,7 +73,7 @@ h1 {
 }
 
 .description {
-  color: var(--text-muted);
+  color: #8b949e !important; /* Texto gris suave */
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 32px;
@@ -92,9 +89,9 @@ h1 {
 }
 
 .tag {
-  background-color: #21262d;
-  border: 1px solid #30363d;
-  color: var(--text-main);
+  background-color: #21262d !important;
+  border: 1px solid #30363d !important;
+  color: #ffffff !important;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -120,24 +117,23 @@ h1 {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: #0d1117;
+  background-color: #00df9a !important;
+  color: #0d1117 !important;
 }
 
 .btn-primary:hover {
-  background-color: #00bc82;
+  background-color: #00bc82 !important;
   transform: scale(1.01);
 }
 
 .btn-secondary {
-  background-color: var(--btn-secondary);
-  color: var(--text-main);
-  border: 1px solid #30363d;
+  background-color: #21262d !important;
+  color: #ffffff !important;
+  border: 1px solid #30363d !important;
 }
 
 .btn-secondary:hover {
-  background-color: var(--btn-secondary-hover);
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #30363d !important;
+  color: #00df9a !important;
+  border-color: #00df9a !important;
 }
-EOF
