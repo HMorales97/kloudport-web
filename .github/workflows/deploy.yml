@@ -13,7 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Configuración de accesos usando los secretos de GitHub
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -21,12 +20,16 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
 
-    # Sincronización de tu index.html con S3
+    # Primero subimos todo lo general
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --delete --exclude ".github/*" --exclude ".git/*" --exclude "*.Identifier"
 
-    # Limpieza automática de caché en CloudFront
+    # Forzamos a que todo lo que esté en la carpeta css se marque explícitamente como text/css
+    - name: Fix CSS MIME Type
+      run: |
+        aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/css/ s3://${{ secrets.AWS_S3_BUCKET }}/css/ --recursive --metadata-directive REPLACE --content-type "text/css"
+
     - name: Invalidate CloudFront Cache
       run: |
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
