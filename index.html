@@ -125,11 +125,17 @@
             </div>
         </div>
 
-        <div id="preguntas" class="content-section">
-            <div class="wip-container">
-                <div class="wip-icon">☁️</div>
-                <h2 class="wip-title">Preguntas</h2>
-                <p class="wip-text">Estamos trabajando en ello para resolver tus dudas técnicas.</p>
+       <div id="preguntas" class="content-section">
+            <h2 class="section-title">GCP Support Practice Quiz</h2>
+            <p class="description" style="margin-bottom: 20px;">
+                Banco de preguntas técnicas para repasar conceptos clave de Linux, Redes, Cloud Computing y Cultura DevOps. ¡Selecciona una opción para validar tu respuesta!
+            </p>
+
+            <div id="quiz-container">
+                </div>
+
+            <div class="btn-container" style="margin-top: 20px;">
+                <button onclick="reiniciarQuiz()" class="btn btn-secondary">Reiniciar Cuestionario</button>
             </div>
         </div>
 
@@ -140,7 +146,8 @@
 
     </div>
 
-    <script>
+   <script>
+        // Lógica de navegación principal
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(sec => sec.classList.remove('active'));
@@ -149,6 +156,167 @@
             document.getElementById(sectionId).classList.add('active');
             window.event.currentTarget.classList.add('active');
         }
+
+        // BASE DE DATOS DEL QUIZ INTERACTIVO (PRIMERAS 10 PREGUNTAS DE TU LISTA)
+        const preguntasData = [
+            {
+                q: "¿Qué es una variable en programación?",
+                options: [
+                    "Un espacio en memoria reservado para almacenar un valor que puede cambiar durante la ejecución.",
+                    "Una estructura fija que nunca altera su contenido dentro del código.",
+                    "Un comando exclusivo de Linux para listar archivos de texto."
+                ],
+                correct: 0,
+                feedback: "¡Exacto! Las variables guardan datos dinámicos (números, strings) identificados con un nombre."
+            },
+            {
+                q: "¿Qué es una función?",
+                options: [
+                    "Un componente de hardware dentro del procesador.",
+                    "Un bloque de código reutilizable que realiza una tarea específica cuando es invocado.",
+                    "Un protocolo de red para el cifrado de datos web."
+                ],
+                correct: 1,
+                feedback: "¡Correcto! Te permite evitar duplicar código encapsulando una lógica específica."
+            },
+            {
+                q: "¿Cuál de las siguientes opciones es un ejemplo real de Platform as a Service (PaaS)?",
+                options: [
+                    "Amazon EC2 / Google Compute Engine",
+                    "Google App Engine / AWS Elastic Beanstalk",
+                    "Google Workspace / Netflix"
+                ],
+                correct: 1,
+                feedback: "¡Excelente! En PaaS, tú solo subes tu código y la nube gestiona el servidor automáticamente."
+            },
+            {
+                q: "¿Qué es una Virtual Machine (VM)?",
+                options: [
+                    "Un software que emula un sistema de hardware completo con su propio sistema operativo independiente.",
+                    "Un contenedor ligero que comparte el kernel de la máquina anfitriona.",
+                    "Un cable de red virtual para conectar routers locales."
+                ],
+                correct: 0,
+                feedback: "¡Así es! Las VMs corren sobre un hipervisor y contienen un sistema operativo invitado completo (Guest OS)."
+            },
+            {
+                q: "¿Qué es una VPC en Networking?",
+                options: [
+                    "Una red privada virtual aislada lógicamente dentro de un proveedor de nube pública.",
+                    "Un protocolo público de transferencia de archivos multimedia.",
+                    "Un sistema físico de almacenamiento conectado por fibra óptica."
+                ],
+                correct: 0,
+                feedback: "¡Perfecto! Virtual Private Cloud es tu propio centro de datos aislado en la nube de Google o AWS."
+            },
+            {
+                q: "¿Cuál es la diferencia fundamental entre un contenedor y una Virtual Machine (VM)?",
+                options: [
+                    "Las VMs son más ligeras y no requieren sistema operativo propio.",
+                    "Los contenedores comparten el kernel del OS anfitrión, mientras que las VMs virtualizan todo el hardware.",
+                    "No existe diferencia, son términos de marketing para el mismo recurso."
+                ],
+                correct: 1,
+                feedback: "¡Punto clave de entrevista! Los contenedores aíslan procesos y son ligeros; las VMs aíslan hardware completo."
+            },
+            {
+                q: "¿Qué es un contenedor?",
+                options: [
+                    "Un paquete de software ligero y portable que incluye el código y todas sus dependencias para ejecutarse en cualquier entorno.",
+                    "Una base de datos relacional masiva de Google Cloud.",
+                    "Una consola física instalada en las oficinas del cliente."
+                ],
+                correct: 0,
+                feedback: "¡Exacto! Al encapsular código y dependencias, garantizas que corra igual en tu PC que en producción."
+            },
+            {
+                q: "¿Qué es un orquestador en el ecosistema de contenedores?",
+                options: [
+                    "Una herramienta que automatiza el despliegue, escalado y gestión de múltiples contenedores (ej. Kubernetes).",
+                    "Un editor de texto avanzado para terminales de Linux.",
+                    "Un servicio de DNS que mapea subdominios estáticos."
+                ],
+                correct: 0,
+                feedback: "¡Gran respuesta! El orquestador coordina el ciclo de vida de los contenedores a gran escala."
+            },
+            {
+                q: "En infraestructura Cloud, ¿cuál es la diferencia entre Zona y Región?",
+                options: [
+                    "Una Región es un área geográfica con múltiples Zonas, las cuales son centros de datos físicamente independientes.",
+                    "Una Zona es un país completo y una Región es un continente.",
+                    "Son términos idénticos y se pueden usar indistintamente en GCP."
+                ],
+                correct: 0,
+                feedback: "¡Correcto! Las zonas te permiten diseñar alta disponibilidad distribuyendo recursos ante fallas físicas."
+            },
+            {
+                q: "En una terminal de Linux, ¿cómo veo en qué directorio estoy actualmente posicionado?",
+                options: [
+                    "Ejecutando el comando 'ls'",
+                    "Ejecutando el comando 'pwd'",
+                    "Ejecutando el comando 'cd ..'"
+                ],
+                correct: 1,
+                feedback: "¡Impecable! 'pwd' significa Print Working Directory y te muestra la ruta absoluta actual."
+            }
+        ];
+
+        // Función para renderizar el cuestionario interactivo
+        function inicializarQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = ''; // Limpiar contenido previo
+
+            preguntasData.forEach((item, indexPregunta) => {
+                let optionsHTML = '';
+                item.options.forEach((opcion, indexOpcion) => {
+                    optionsHTML += `
+                        <button class="option-btn" onclick="verificarRespuesta(this, ${indexPregunta}, ${indexOpcion})">
+                            ${opcion}
+                        </button>
+                    `;
+                });
+
+                const quizBox = `
+                    <div class="quiz-box" id="box-${indexPregunta}">
+                        <div class="quiz-question">${indexPregunta + 1}. ${item.q}</div>
+                        <div class="quiz-options">
+                            ${optionsHTML}
+                        </div>
+                        <div class="quiz-feedback" id="feedback-${indexPregunta}">${item.feedback}</div>
+                    </div>
+                `;
+                container.innerHTML += quizBox;
+            });
+        }
+
+        // Función para evaluar las respuestas en tiempo real
+        function verificarRespuesta(btn, idxPregunta, idxOpcion) {
+            const padre = btn.parentElement;
+            const botones = padre.querySelectorAll('.option-btn');
+            const feedbackBlock = document.getElementById(`feedback-${idxPregunta}`);
+            const respuestaCorrecta = preguntasData[idxPregunta].correct;
+
+            // Bloquear los demás botones para evitar clics múltiples
+            botones.forEach(b => b.disabled = true);
+
+            if (idxOpcion === respuestaCorrecta) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('incorrect');
+                // Mostrar cuál era la correcta sutilmente
+                botones[respuestaCorrecta].classList.add('correct');
+            }
+
+            // Mostrar la retroalimentación
+            feedbackBlock.style.display = 'block';
+        }
+
+        function reiniciarQuiz() {
+            inicializarQuiz();
+        }
+
+        // Ejecutar el quiz automáticamente al cargar la página
+        inicializarQuiz();
     </script>
 
 </body>
