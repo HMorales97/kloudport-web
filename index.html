@@ -157,116 +157,64 @@
             window.event.currentTarget.classList.add('active');
         }
 
-        // BASE DE DATOS DEL QUIZ INTERACTIVO (PRIMERAS 10 PREGUNTAS DE TU LISTA)
-        const preguntasData = [
-            {
-                q: "¿Qué es una variable en programación?",
-                options: [
-                    "Un espacio en memoria reservado para almacenar un valor que puede cambiar durante la ejecución.",
-                    "Una estructura fija que nunca altera su contenido dentro del código.",
-                    "Un comando exclusivo de Linux para listar archivos de texto."
-                ],
-                correct: 0,
-                feedback: "¡Exacto! Las variables guardan datos dinámicos (números, strings) identificados con un nombre."
-            },
-            {
-                q: "¿Qué es una función?",
-                options: [
-                    "Un componente de hardware dentro del procesador.",
-                    "Un bloque de código reutilizable que realiza una tarea específica cuando es invocado.",
-                    "Un protocolo de red para el cifrado de datos web."
-                ],
-                correct: 1,
-                feedback: "¡Correcto! Te permite evitar duplicar código encapsulando una lógica específica."
-            },
-            {
-                q: "¿Cuál de las siguientes opciones es un ejemplo real de Platform as a Service (PaaS)?",
-                options: [
-                    "Amazon EC2 / Google Compute Engine",
-                    "Google App Engine / AWS Elastic Beanstalk",
-                    "Google Workspace / Netflix"
-                ],
-                correct: 1,
-                feedback: "¡Excelente! En PaaS, tú solo subes tu código y la nube gestiona el servidor automáticamente."
-            },
-            {
-                q: "¿Qué es una Virtual Machine (VM)?",
-                options: [
-                    "Un software que emula un sistema de hardware completo con su propio sistema operativo independiente.",
-                    "Un contenedor ligero que comparte el kernel de la máquina anfitriona.",
-                    "Un cable de red virtual para conectar routers locales."
-                ],
-                correct: 0,
-                feedback: "¡Así es! Las VMs corren sobre un hipervisor y contienen un sistema operativo invitado completo (Guest OS)."
-            },
-            {
-                q: "¿Qué es una VPC en Networking?",
-                options: [
-                    "Una red privada virtual aislada lógicamente dentro de un proveedor de nube pública.",
-                    "Un protocolo público de transferencia de archivos multimedia.",
-                    "Un sistema físico de almacenamiento conectado por fibra óptica."
-                ],
-                correct: 0,
-                feedback: "¡Perfecto! Virtual Private Cloud es tu propio centro de datos aislado en la nube de Google o AWS."
-            },
-            {
-                q: "¿Cuál es la diferencia fundamental entre un contenedor y una Virtual Machine (VM)?",
-                options: [
-                    "Las VMs son más ligeras y no requieren sistema operativo propio.",
-                    "Los contenedores comparten el kernel del OS anfitrión, mientras que las VMs virtualizan todo el hardware.",
-                    "No existe diferencia, son términos de marketing para el mismo recurso."
-                ],
-                correct: 1,
-                feedback: "¡Punto clave de entrevista! Los contenedores aíslan procesos y son ligeros; las VMs aíslan hardware completo."
-            },
-            {
-                q: "¿Qué es un contenedor?",
-                options: [
-                    "Un paquete de software ligero y portable que incluye el código y todas sus dependencias para ejecutarse en cualquier entorno.",
-                    "Una base de datos relacional masiva de Google Cloud.",
-                    "Una consola física instalada en las oficinas del cliente."
-                ],
-                correct: 0,
-                feedback: "¡Exacto! Al encapsular código y dependencias, garantizas que corra igual en tu PC que en producción."
-            },
-            {
-                q: "¿Qué es un orquestador en el ecosistema de contenedores?",
-                options: [
-                    "Una herramienta que automatiza el despliegue, escalado y gestión de múltiples contenedores (ej. Kubernetes).",
-                    "Un editor de texto avanzado para terminales de Linux.",
-                    "Un servicio de DNS que mapea subdominios estáticos."
-                ],
-                correct: 0,
-                feedback: "¡Gran respuesta! El orquestador coordina el ciclo de vida de los contenedores a gran escala."
-            },
-            {
-                q: "En infraestructura Cloud, ¿cuál es la diferencia entre Zona y Región?",
-                options: [
-                    "Una Región es un área geográfica con múltiples Zonas, las cuales son centros de datos físicamente independientes.",
-                    "Una Zona es un país completo y una Región es un continente.",
-                    "Son términos idénticos y se pueden usar indistintamente en GCP."
-                ],
-                correct: 0,
-                feedback: "¡Correcto! Las zonas te permiten diseñar alta disponibilidad distribuyendo recursos ante fallas físicas."
-            },
-            {
-                q: "En una terminal de Linux, ¿cómo veo en qué directorio estoy actualmente posicionado?",
-                options: [
-                    "Ejecutando el comando 'ls'",
-                    "Ejecutando el comando 'pwd'",
-                    "Ejecutando el comando 'cd ..'"
-                ],
-                correct: 1,
-                feedback: "¡Impecable! 'pwd' significa Print Working Directory y te muestra la ruta absoluta actual."
-            }
+        // BANCO COMPLETO DE PREGUNTAS SUGERIDAS POR HENRY (26 CONCEPTOS ÚNICOS)
+        const bancoCompletoPreguntas = [
+            { q: "¿Qué es una variable?", options: ["Un espacio en memoria reservado para almacenar un valor dinámico.", "Una constante fija del sistema operativo.", "Un comando para listar directorios."], correct: 0, feedback: "¡Exacto! Almacena datos que cambian durante la ejecución." },
+            { q: "¿Qué es una función?", options: ["Un protocolo de comunicación síncrona.", "Un bloque de código reutilizable que realiza una tarea específica al ser invocado.", "Un tipo de servidor virtual en GCP."], correct: 1, feedback: "¡Correcto! Te permite modularizar y reutilizar lógica." },
+            { q: "Ejemplo de Platform as a Service (PaaS):", options: ["Google Compute Engine", "Google App Engine", "Google Workspace"], correct: 1, feedback: "¡Excelente! App Engine gestiona la infraestructura; tú solo pones el código." },
+            { q: "¿Qué es una Virtual Machine (VM)?", options: ["Un entorno de software que comparte el kernel del Host sin aislar hardware.", "Un software que emula un sistema físico completo con su propio OS independiente.", "Un contenedor Docker optimizado."], correct: 1, feedback: "¡Así es! Corre sobre un hipervisor emulando hardware completo." },
+            { q: "¿Qué es una VPC en networking?", options: ["Una red privada virtual aislada lógicamente dentro de una nube pública.", "Un cable físico de alta velocidad.", "Un protocolo de transferencia de correo electrónico."], correct: 0, feedback: "¡Perfecto! Virtual Private Cloud es tu red aislada en la nube." },
+            { q: "¿Cuál es la diferencia entre contenedor y VM?", options: ["Las VMs son más ligeras porque no virtualizan hardware.", "Los contenedores comparten el kernel del OS host; las VMs aíslan hardware con un OS propio.", "Son sinónimos comerciales."], correct: 1, feedback: "¡Punto clave! Los contenedores son ligeros; las VMs son sistemas completos pesados." },
+            { q: "¿Qué es un contenedor?", options: ["Un paquete ligero con el código y todas sus dependencias para correr en cualquier entorno.", "Un disco duro virtual de alta velocidad.", "Un clúster de servidores físicos."], correct: 0, feedback: "¡Correcto! Docker es el estándar para crearlos." },
+            { q: "¿Qué es un orquestador?", options: ["Una herramienta que compila código Python.", "Un sistema que automatiza el despliegue, escalado y gestión de contenedores (ej. Kubernetes).", "Un balanceador de carga HTTP."], correct: 1, feedback: "¡Exacto! Organiza el ciclo de vida de los contenedores a gran escala." },
+            { q: "¿Qué es Zona y Región en Cloud?", options: ["Una Región es un área geográfica; las Zonas son centros de datos aislados dentro de ella.", "Son sinónimos exactos en Google Cloud.", "Una Zona es el software y la Región el hardware."], correct: 0, feedback: "¡Bien! Diseñar multizona previene caídas por fallos físicos." },
+            { q: "¿Cómo veo en qué directorio de la terminal estoy?", options: ["Con el comando 'ls'", "Con el comando 'pwd'", "Con el comando 'cd ..'"], correct: 1, feedback: "¡Impecable! pwd = Print Working Directory." },
+            { q: "¿Qué hace el comando LS?", options: ["Muestra el uso de la memoria RAM.", "Lista los archivos y subdirectorios dentro del directorio actual.", "Limpia la pantalla de la terminal."], correct: 1, feedback: "¡Correcto! ls = List." },
+            { q: "¿Qué pasa si no me puedo conectar a mi VM por SSH?", options: ["Debes revisar si las reglas de Firewall de la VPC permiten el tráfico entrante en el puerto 22.", "Debes cambiar la IP del DNS de inmediato.", "Debes borrar el repositorio de Git."], correct: 0, feedback: "¡Paso de soporte básico! El puerto 22 bloqueado en el firewall es la causa común." },
+            { q: "¿Qué es CI/CD?", options: ["Un formato de datos para bases de datos NoSQL.", "Integración Continua y Despliegue Continuo; automatiza pruebas y publicaciones de código.", "Un protocolo de seguridad perimetral."], correct: 1, feedback: "¡Espectacular! Tu flujo con GitHub Actions es un claro ejemplo de CI/CD." },
+            { q: "¿Qué es elasticidad y escalabilidad?", options: ["La escalabilidad es crecer ante demanda fija; elasticidad es adaptarse automáticamente subiendo o bajando recursos.", "Son lo mismo pero para nubes diferentes.", "Métodos exclusivos de bases de datos."], correct: 0, feedback: "¡Exacto! Elasticidad implica automatización dinámica en tiempo real." },
+            { q: "¿Qué es Docker?", options: ["Un proveedor de nube pública como AWS.", "Una plataforma de código abierto para automatizar el despliegue de aplicaciones en contenedores.", "Un orquestador de máquinas virtuales."], correct: 1, feedback: "¡Correcto! Permite construir, empaquetar y ejecutar contenedores." },
+            { q: "¿Qué es Jenkins?", options: ["Un servidor de automatización de código abierto para construir pipelines de CI/CD.", "Un motor de base de datos relacional.", "Un lenguaje de programación compilado."], correct: 0, feedback: "¡Así es! Es una de las herramientas de integración continua más usadas." },
+            { q: "¿Qué es código JSON?", options: ["Un lenguaje de consultas de bases de datos físicas.", "Un formato ligero de intercambio de datos estructurado en parejas de clave-valor, legible para humanos.", "Un script de automatización de Bash."], correct: 1, feedback: "¡Perfecto! JavaScript Object Notation se usa masivamente en APIs." },
+            { q: "¿Qué es una API y una API Call?", options: ["Un protocolo de hardware para conectar discos.", "Una interfaz que permite a dos softwares comunicarse, y la 'call' es la solicitud enviada para pedir datos.", "Un formato de logs estructurados."], correct: 1, feedback: "¡Correcto! Application Programming Interface." },
+            { q: "¿Qué son los Logs?", options: ["Registros cronológicos de eventos, errores o transacciones que ocurren en un sistema o aplicación.", "Archivos binarios encriptados que no se pueden borrar.", "Comandos de Linux para compilar."], correct: 0, feedback: "¡Vital en soporte! Los logs son tu primera herramienta para diagnosticar fallas." },
+            { q: "¿Qué es un Pipeline?", options: ["Un conjunto de pasos automatizados por los que pasa el código desde que se escribe hasta producción.", "Una conexión de red física entre dos zonas.", "Un script de Linux para limpiar caché."], correct: 0, feedback: "¡Exacto! Define las fases de tu flujo de CI/CD." },
+            { q: "¿Qué es PaaS, SaaS e IaaS?", options: ["PaaS ofrece software final; SaaS infraestructura; IaaS plataformas de desarrollo.", "Modelos de servicio cloud: IaaS da infraestructura bruta, PaaS da la plataforma para código, SaaS da el software final.", "Protocolos de ruteo de red."], correct: 1, feedback: "¡Esencial de examen! Entender los niveles de responsabilidad en la nube." },
+            { q: "¿Qué es un registro CNAME?", options: ["Un mapeo directo de un dominio a una dirección IPv4 estática.", "Un alias de DNS que apunta un nombre de dominio hacia otro nombre de dominio.", "Un registro exclusivo para servidores de correo electrónico."], correct: 1, feedback: "¡Perfecto! Canonical Name es un alias." },
+            { q: "En redes, ¿qué es NAT?", options: ["Network Address Translation; traduce IPs privadas a una pública para dar salida segura a internet.", "Un firewall de capa 7 enfocado en HTTP.", "Un sistema de asignación dinámica de nombres."], correct: 0, feedback: "¡Excelente! Permite que tu subred privada navegue sin exponerse." },
+            { q: "¿Qué es un Firewall?", options: ["Un sistema de seguridad de red que monitorea y filtra el tráfico entrante y saliente basado en reglas.", "Un cable que previene sobrecalentamiento en data centers.", "Un software para acelerar descargas de Git."], correct: 0, feedback: "¡Exacto! Controla los accesos bloqueando o permitiendo puertos." },
+            { q: "¿Qué es el DNS?", options: ["El sistema que traduce nombres de dominio legibles a direcciones IP para que las computadoras se comuniquen.", "Un protocolo para subir archivos HTML a S3.", "Un firewall para bases de datos."], correct: 0, feedback: "¡Así es! Es el directorio telefónico de internet." },
+            { q: "¿Diferencia entre Red Privada y Red Pública?", options: ["La pública es accesible desde internet; la privada requiere NAT, VPN o accesos internos y no se expone directamente.", "La privada es gratis y la pública de pago.", "No hay diferencia, ambas usan las mismas IPs públicas."], correct: 0, feedback: "¡Punto clave! La red privada protege tus bases de datos y servidores lógicos." }
         ];
 
-        // Función para renderizar el cuestionario interactivo
+        // Lista de 10 preguntas seleccionadas para la ronda actual
+        let preguntasActuales = [];
+
+        // Algoritmo de Fisher-Yates para barajar el banco y elegir 10 al azar
+        function seleccionarPreguntasAleatorias() {
+            // Copiamos el banco original para no destruirlo
+            let copia = [...bancoCompletoPreguntas];
+            
+            // Barajamos la copia completa
+            for (let i = copia.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copia[i], copia[j]] = [copia[j], copia[i]];
+            }
+            
+            // Extraemos únicamente las primeras 10 preguntas resultantes
+            preguntasActuales = copia.slice(0, 10);
+        }
+
+        // Función para renderizar las 10 preguntas aleatorias en pantalla
         function inicializarQuiz() {
             const container = document.getElementById('quiz-container');
-            container.innerHTML = ''; // Limpiar contenido previo
+            container.innerHTML = ''; // Limpiar la interfaz anterior
 
-            preguntasData.forEach((item, indexPregunta) => {
+            // 1. Escogemos una tanda nueva de 10 al azar
+            seleccionarPreguntasAleatorias();
+
+            // 2. Las pintamos en el HTML
+            preguntasActuales.forEach((item, indexPregunta) => {
                 let optionsHTML = '';
                 item.options.forEach((opcion, indexOpcion) => {
                     optionsHTML += `
@@ -289,33 +237,34 @@
             });
         }
 
-        // Función para evaluar las respuestas en tiempo real
+        // Función para evaluar las respuestas cliqueadas
         function verificarRespuesta(btn, idxPregunta, idxOpcion) {
             const padre = btn.parentElement;
             const botones = padre.querySelectorAll('.option-btn');
             const feedbackBlock = document.getElementById(`feedback-${idxPregunta}`);
-            const respuestaCorrecta = preguntasData[idxPregunta].correct;
+            const respuestaCorrecta = preguntasActuales[idxPregunta].correct;
 
-            // Bloquear los demás botones para evitar clics múltiples
+            // Bloquear los botones de esta pregunta específica
             botones.forEach(b => b.disabled = true);
 
             if (idxOpcion === respuestaCorrecta) {
                 btn.classList.add('correct');
             } else {
                 btn.classList.add('incorrect');
-                // Mostrar cuál era la correcta sutilmente
                 botones[respuestaCorrecta].classList.add('correct');
             }
 
-            // Mostrar la retroalimentación
+            // Mostrar el texto de retroalimentación
             feedbackBlock.style.display = 'block';
         }
 
         function reiniciarQuiz() {
             inicializarQuiz();
+            // Scroll suave hacia arriba de la tarjeta para volver a empezar
+            document.querySelector('.portfolio-card').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Ejecutar el quiz automáticamente al cargar la página
+        // Iniciar automáticamente al cargar el sitio
         inicializarQuiz();
     </script>
 
