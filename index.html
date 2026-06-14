@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting ready for GCP | Portfolio</title>
+    <title>Getting ready for GCP</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,35 +11,95 @@
     <div class="portfolio-card">
         
         <nav class="nav-menu">
-            <a href="#" class="nav-link active">Inicio</a>
-            <a href="#" class="nav-link">Requerimientos</a>
-            <a href="#" class="nav-link">Acerca de mí</a>
-            <a href="#" class="nav-link">Proyectos</a>
-            <a href="#" class="nav-link">Preguntas</a>
+            <a href="#" class="nav-link active" onclick="showSection('inicio')">Inicio</a>
+            <a href="#" class="nav-link" onclick="showSection('requerimientos')">Requerimientos</a>
+            <a href="#" class="nav-link" onclick="showSection('acerca')">Acerca de mí</a>
+            <a href="#" class="nav-link" onclick="showSection('proyectos')">Proyectos</a>
+            <a href="#" class="nav-link" onclick="showSection('preguntas')">Preguntas</a>
         </nav>
 
-        <div class="avatar-container">
-            <div class="avatar-icon">
-                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19.35 10.04A6 6 0 0 0 7 9.11 4.8 4.8 0 0 0 2 14c0 2.65 2.15 4.9 4.8 4.9h11.4a4.15 4.15 0 0 0 3.1-8.86z"></path>
-                </svg>
+        <div id="inicio" class="content-section active">
+            <div class="avatar-container">
+                <div class="avatar-icon">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19.35 10.04A6 6 0 0 0 7 9.11 4.8 4.8 0 0 0 2 14c0 2.65 2.15 4.9 4.8 4.9h11.4a4.15 4.15 0 0 0 3.1-8.86z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <h1>Getting ready for GCP</h1>
+            <div class="subtitle">Infraestructura Cloud & CI/CD Lab</div>
+            
+            <p class="description">
+                Esta plataforma está desplegada sobre una arquitectura global optimizada. Los archivos estáticos residen de forma segura en un bucket de <strong>Amazon S3</strong>, distribuidos a nivel mundial con baja latencia mediante la CDN de <strong>Amazon CloudFront</strong> bajo cifrado seguro HTTPS/SSL. Toda la integración y el despliegue están completamente automatizados mediante un flujo de CI/CD con <strong>GitHub Actions</strong>.
+            </p>
+
+            <div class="tags-container">
+                <span class="tag">AWS S3</span>
+                <span class="tag">CloudFront</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">HTTPS / SSL</span>
             </div>
         </div>
 
-        <h1>Getting ready for GCP</h1>
-        <div class="subtitle">Infraestructura Cloud & CI/CD Lab</div>
-        
-        <p class="description">
-            Esta plataforma está desplegada sobre una arquitectura global optimizada. Los archivos estáticos residen de forma segura en un bucket de <strong>Amazon S3</strong>, distribuidos a nivel mundial con baja latencia mediante la CDN de <strong>Amazon CloudFront</strong> bajo cifrado seguro HTTPS/SSL. Toda la integración y el despliegue están completamente automatizados mediante un flujo de CI/CD con <strong>GitHub Actions</strong>.
-        </p>
+        <div id="requerimientos" class="content-section">
+            <h2 class="section-title">Technical Knowledge</h2>
+            
+            <div class="req-grid">
+                <div class="req-item">
+                    <strong>☁️ Cloud Infrastructure:</strong> Familiaridad con Google Cloud Platform, VPN, y Virtual Private Clouds (VPC).
+                </div>
+                <div class="req-item">
+                    <strong>🗄️ Cloud Storage:</strong> Experiencia con al menos un servicio de almacenamiento en la nube (Amazon S3, Azure Blob Storage, o Google Cloud Storage).
+                </div>
+                <div class="req-item">
+                    <strong>🤖 Automation & Code:</strong> Familiaridad con Bash Scripting e Infraestructura como Código (IaC).
+                </div>
+                <div class="req-item">
+                    <strong>🖥️ Compute & Virtualization:</strong> Experiencia con máquinas virtuales (Google Compute Engine, VMware, Amazon EC2, etc.).
+                </div>
+                <div class="req-item">
+                    <strong>🌐 Protocols & APIs:</strong> Familiaridad con protocolos web y de correo (HTTP, TLS, SMTP, etc.) y tecnologías modernas de API (OAuth, HTTP RPCs, REST).
+                </div>
+                <div class="req-item">
+                    <strong>🐍 Programming:</strong> Familiaridad con lenguajes de programación como Python, Java, o similares.
+                </div>
+            </div>
 
-        <div class="tags-container">
-            <span class="tag">AWS S3</span>
-            <span class="tag">CloudFront</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">HTTPS / SSL</span>
+            <h2 class="section-title">⭐ Desired Certifications</h2>
+            <div class="certs-container">
+                <span class="cert-badge primary-cert">Google Associate Cloud Engineer (ACE)</span>
+                <span class="cert-badge">Google Professional Cloud Network Engineer</span>
+                <span class="cert-badge">Google Professional Cloud Architect</span>
+                <span class="cert-badge">Cisco Certified Network Associate (CCNA)</span>
+                <span class="cert-badge">AWS Certified Advanced Networking</span>
+                <span class="cert-badge">Azure Network Engineer Associate</span>
+            </div>
         </div>
+
     </div>
+
+    <script>
+        function showSection(sectionId) {
+            // 1. Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            // 2. Desactivar todos los links del menú
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+            
+            // 3. Mostrar la sección seleccionada si existe
+            const activeSection = document.getElementById(sectionId);
+            if(activeSection) {
+                activeSection.classList.add('active');
+            }
+            
+            // 4. Marcar como activo el link presionado
+            const clickedLink = window.event.currentTarget;
+            clickedLink.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>

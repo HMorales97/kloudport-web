@@ -131,4 +131,75 @@ h1 {
   font-size: 11px;
   font-weight: 500;
 }
-EOF
+/* --- ESTILOS DE CONTROL DE SECCIONES (SPA) --- */
+.content-section {
+  display: none; /* Oculto por defecto */
+}
+
+.content-section.active {
+  display: block; /* Solo se muestra la activa */
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ESTILOS DE LA SECCIÓN REQUERIMIENTOS --- */
+.section-title {
+  font-size: 18px;
+  color: #00df9a;
+  text-align: left;
+  border-left: 3px solid #00df9a;
+  padding-left: 10px;
+  margin: 25px 0 15px 0;
+  font-weight: 600;
+}
+
+.req-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.req-item {
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #c9d1d9;
+}
+
+.req-item strong {
+  color: #ffffff;
+}
+
+/* Certificaciones Deseadas */
+.certs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.cert-badge {
+  background-color: #1f2937;
+  border: 1px solid #38bdf8; /* Azul claro estilo red/certificación */
+  color: #e0f2fe;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+/* Resaltar la de Google ACE que es tu target principal */
+.cert-badge.primary-cert {
+  border-color: #00df9a;
+  background-color: rgba(0, 223, 154, 0.1);
+  color: #00df9a;
+  font-weight: 600;
+}
