@@ -1,8 +1,8 @@
+
 /* ==========================================
-   PORTFOLIO ULTRA DARK TECH STYLES (BLINDADO)
+   PORTFOLIO ULTRA DARK TECH STYLES V2
    ========================================== */
 
-/* Forzamos al navegador a entender que esta página es 100% oscura siempre */
 html {
   color-scheme: dark;
   background-color: #0d1117 !important;
@@ -13,7 +13,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  background-color: #0d1117 !important; /* Fondo oscuro de GitHub obligatorio */
+  background-color: #0d1117 !important;
   color: #ffffff !important;
   display: flex;
   justify-content: center;
@@ -23,15 +23,16 @@ body {
 
 /* Contenedor principal estilo tarjeta GitHub con glow neón */
 .portfolio-card {
-  background-color: #161b22 !important; /* Gris oscuro de tarjeta */
+  background-color: #161b22 !important;
   border: 1px solid #30363d !important;
   border-radius: 12px;
-  padding: 40px;
-  max-width: 450px;
+  padding: 30px 40px 40px 40px;
+  max-width: 480px;
   width: 90%;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 223, 154, 0.08), 0 0 40px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .portfolio-card:hover {
@@ -39,13 +40,46 @@ body {
   box-shadow: 0 0 30px rgba(0, 223, 154, 0.2), 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
+/* --- ESTILOS DEL NUEVO MENÚ DE NAVEGACIÓN --- */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #00df9a;
+  background-color: #21262d;
+}
+
+.nav-link.active {
+  color: #00df9a;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+}
+
+/* --- AVATAR E ICONOS --- */
 .avatar-container {
   margin-bottom: 24px;
 }
 
 .avatar-icon {
   background: linear-gradient(135deg, #1f2937, #111827);
-  color: #00df9a !important; /* Verde neón */
+  color: #00df9a !important;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -73,10 +107,11 @@ h1 {
 }
 
 .description {
-  color: #8b949e !important; /* Texto gris suave */
-  font-size: 15px;
+  color: #8b949e !important;
+  font-size: 14px;
   line-height: 1.6;
   margin-bottom: 32px;
+  text-align: justify;
 }
 
 /* Badges / Etiquetas */
@@ -85,7 +120,6 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 32px;
 }
 
 .tag {
@@ -94,46 +128,7 @@ h1 {
   color: #ffffff !important;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
 }
-
-/* Botones */
-.btn-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.btn {
-  display: block;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: #00df9a !important;
-  color: #0d1117 !important;
-}
-
-.btn-primary:hover {
-  background-color: #00bc82 !important;
-  transform: scale(1.01);
-}
-
-.btn-secondary {
-  background-color: #21262d !important;
-  color: #ffffff !important;
-  border: 1px solid #30363d !important;
-}
-
-.btn-secondary:hover {
-  background-color: #30363d !important;
-  color: #00df9a !important;
-  border-color: #00df9a !important;
-}
+EOF
