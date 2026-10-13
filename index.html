@@ -3,270 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting ready for GCP</title>
+    <title>Henry Morales — GCP Readiness & Multi-Cloud Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <div class="portfolio-card">
-        
-        <nav class="nav-menu">
-            <a href="#" class="nav-link active" onclick="showSection('inicio')">Inicio</a>
-            <a href="#" class="nav-link" onclick="showSection('requerimientos')">Requerimientos</a>
-            <a href="#" class="nav-link" onclick="showSection('acerca')">Acerca de mí</a>
-            <a href="#" class="nav-link" onclick="showSection('proyectos')">Proyectos</a>
-            <a href="#" class="nav-link" onclick="showSection('preguntas')">Preguntas</a>
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo-box">
+            <div class="logo-icon">☁️</div>
+            <div class="logo-text">
+                <h1>Getting ready for GCP</h1>
+                <span>MULTI-CLOUD ENGINEERING</span>
+            </div>
+        </div>
+        <nav>
+            <a href="#inicio" class="active" onclick="showTab('inicio')">Inicio</a>
+            <a href="#acerca" onclick="showTab('acerca')">Acerca de mí</a>
+            <a href="#quiz" onclick="showTab('quiz')">Práctica Quiz</a>
+            <button class="btn-arch-nav" onclick="openModal()">Ver Arquitectura ⚡</button>
         </nav>
+    </header>
 
-        <div id="inicio" class="content-section active">
-            <div class="avatar-container">
-                <div class="avatar-icon">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19.35 10.04A6 6 0 0 0 7 9.11 4.8 4.8 0 0 0 2 14c0 2.65 2.15 4.9 4.8 4.9h11.4a4.15 4.15 0 0 0 3.1-8.86z"></path>
-                    </svg>
-                </div>
-            </div>
-            <h1>Getting ready for GCP</h1>
-            <div class="subtitle">Infraestructura Cloud & CI/CD Lab</div>
-            <p class="description">
-                Esta plataforma está desplegada sobre una arquitectura global optimizada. Los archivos estáticos residen de forma segura en un bucket de <strong>Amazon S3</strong>, distribuidos a nivel mundial con baja latencia mediante la CDN de <strong>Amazon CloudFront</strong> bajo cifrado seguro HTTPS/SSL.
-            </p>
-            <div class="tags-container">
-                <span class="tag">AWS S3</span>
-                <span class="tag">CloudFront</span>
-                <span class="tag">GitHub Actions</span>
-            </div>
+    <section class="hero">
+        <div class="hero-pill">Portafolio Multi-Cloud & Lab GCP Activo</div>
+        <h1 class="hero-title">
+            Mastering Cloud<br>
+            Infrastructure.<br>
+            <span class="gradient-text">Ready for Google Cloud.</span>
+        </h1>
+        <p class="hero-desc">
+            Plataforma automatizada de ingeniería alojada sobre infraestructura global multi-región. Diseñada para demostrar competencias reales en redes VPC, CI/CD, almacenamiento seguro y alta disponibilidad.
+        </p>
+
+        <div class="hero-btns">
+            <button class="btn-primary" onclick="openModal()">
+                Descubrir cómo está hecha esta página ➔
+            </button>
+            <button class="btn-secondary" onclick="showTab('acerca')">
+                Conocer mi perfil
+            </button>
         </div>
 
-       <div id="requerimientos" class="content-section">
-            <h2 class="section-title">Technical Knowledge</h2>
-            <div class="req-grid">
-                <div class="req-item">
-                    <strong> Cloud Infrastructure:</strong> Familiaridad con Google Cloud Platform, VPN, y Virtual Private Clouds (VPC).
-                </div>
-                <div class="req-item">
-                    <strong> Cloud Storage:</strong> Experiencia con al menos un servicio de almacenamiento en la nube (Amazon S3, Azure Blob Storage, o Google Cloud Storage).
-                </div>
-                <div class="req-item">
-                    <strong> Automation & Code:</strong> Familiaridad con Bash Scripting e Infrastructure as Code (IaC).
-                </div>
-                <div class="req-item">
-                    <strong> Compute & Virtualization:</strong> Experiencia con máquinas virtuales (Google Compute Engine, VMware, Amazon EC2, etc.).
-                </div>
-                <div class="req-item">
-                    <strong> Protocols & APIs:</strong> 
-                    <p style="margin: 5px 0 0 0; padding-left: 15px; font-size: 13px; color: #8b949e;">• Familiaridad con protocolos web y de correo (HTTP, TLS, SMTP, etc.).</p>
-                    <p style="margin: 3px 0 0 0; padding-left: 15px; font-size: 13px; color: #8b949e;">• Familiaridad con tecnologías modernas de API (OAuth, HTTP RPCs, REST).</p>
-                </div>
-                <div class="req-item">
-                    <strong> Programming:</strong> Familiaridad con lenguajes de programación como Python, Java, o similares.
-                </div>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-tag"><span class="status-dot"></span> AWS STORAGE</div>
+                <div class="status-title">Amazon S3 Bucket</div>
             </div>
-            
-            <h2 class="section-title">⭐ Desired Certifications</h2>
-            <div class="certs-container">
-                <span class="cert-badge primary-cert">Google Associate Cloud Engineer (ACE)</span>
-                <span class="cert-badge">Google Professional Cloud Network Engineer</span>
-                <span class="cert-badge">Google Professional Cloud Architect</span>
-                <span class="cert-badge">Cisco Certified Network Associate (CCNA)</span>
-                <span class="cert-badge">AWS Certified Advanced Networking</span>
-                <span class="cert-badge">Azure Network Engineer Associate</span>
+            <div class="status-card">
+                <div class="status-tag"><span class="status-dot"></span> GCP STORAGE</div>
+                <div class="status-title">GCS Bucket Public</div>
+            </div>
+            <div class="status-card">
+                <div class="status-tag"><span class="status-dot"></span> AUTOMATION</div>
+                <div class="status-title">GitHub Actions CI/CD</div>
             </div>
         </div>
+    </section>
 
+    <main>
+        <div id="inicio" class="content-section"></div>
+
+        <!-- SECCIÓN: ACERCA DE MÍ & TRAYECTORIA -->
         <div id="acerca" class="content-section">
-            <h2 class="section-title">Perfil Profesional</h2>
-            <p class="description" style="text-align: justify; margin-bottom: 20px;">
-                Estudiante de Ingeniería de Sistemas apasionado por la arquitectura cloud, las redes y la automatización de infraestructura. Actualmente enfocado de forma masiva en el ecosistema de <strong>Google Cloud Platform (GCP)</strong>, desarrollando laboratorios prácticos y metodologías de CI/CD para resolver problemas reales de soporte, escalabilidad y despliegue técnico.
-            </p>
-
-            <h2 class="section-title"> Certificaciones Obtenidas</h2>
-            <div class="req-grid" style="margin-bottom: 25px;">
-            
-                <div class="req-item" style="border-left: 3px solid #38bdf8;">
-                    <strong> Curso Práctico de Fundamentos de Cloud Computing en AWS</strong> — Platzi. Aprendizaje y despliegue de arquitecturas en la nube, gestión de recursos e infraestructura esencial.
-                </div>
-                <div class="req-item" style="border-left: 3px solid #38bdf8;">
-                    <strong> Curso de Fundamentos de Cloud Computing y DevOps</strong> — Platzi. Comprensión de la cultura DevOps, integración continua, despliegue continuo (CI/CD) y metodologías ágiles de infraestructura.
-                </div>
+            <div class="section-header">
+                <div class="section-tag">PERFIL PROFESIONAL</div>
+                <h2 class="section-title">Acerca de mí & Trayectoria</h2>
             </div>
 
-            <h2 class="section-title"> Herramientas y Workspace</h2>
-            <div class="tags-container" style="justify-content: flex-start; margin-bottom: 30px;">
-                <span class="tag" style="background-color: #2d3748 !important;">Linux OS</span>
-                <span class="tag" style="background-color: #2d3748 !important;">Git & GitHub</span>
-                <span class="tag" style="background-color: #2d3748 !important;">Notion Workspace</span>
-                <span class="tag" style="background-color: #2d3748 !important;">Bash / Terminal</span>
-            </div>
+            <div class="about-grid">
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="profile-card">
+                    <div class="user-header">
+                        <div class="avatar-box">👨‍💻</div>
+                        <div class="user-info">
+                            <h3>Henry Morales</h3>
+                            <p>Estudiante de Ingeniería de Sistemas</p>
+                        </div>
+                    </div>
 
-            <h2 class="section-title">🌐 Redes Profesionales</h2>
-            <div class="btn-container">
-                <a href="https://github.com/HMorales97" target="_blank" class="btn btn-primary">Ver mi GitHub</a>
-                <a href="https://www.linkedin.com/in/hmorales1997/" target="_blank" class="btn btn-secondary">Conectar en LinkedIn</a>
-            </div>
-        </div>
-
-        <div id="proyectos" class="content-section">
-            <h2 class="section-title">Laboratorios de Infraestructura</h2>
-            
-            <div class="req-grid">
-                <div class="req-item" style="border-top: 2px solid #00df9a;">
-                    <strong style="color: #00df9a; font-size: 15px;">🌐 Automated Multi-Cloud Portfolio</strong>
-                    <p style="margin: 5px 0 10px 0; font-size: 13px; text-align: justify;">
-                        Diseño y despliegue de una plataforma web estática optimizada globalmente. Implementación de alta disponibilidad y seguridad perimetral mediante almacenamiento en la nube y redes de distribución de contenido (CDN).
+                    <p class="profile-desc">
+                        Apasionado por la arquitectura cloud, la automatización y la infraestructura como código. Enfocado de forma intensiva en el ecosistema de <strong>Google Cloud Platform (GCP)</strong>, desarrollando laboratorios prácticos de redes VPC, almacenamiento de objetos y pipelines de CI/CD para resolver problemas reales de soporte y escalabilidad.
                     </p>
-                    <div class="tags-container" style="justify-content: flex-start; gap: 5px;">
-                        <span class="tag" style="font-size: 10px; padding: 2px 8px;">AWS S3</span>
-                        <span class="tag" style="font-size: 10px; padding: 2px 8px;">CloudFront</span>
-                        <span class="tag" style="font-size: 10px; padding: 2px 8px;">GitHub Actions</span>
+
+                    <a href="https://storage.googleapis.com/tu-bucket-gcp/CV_Henry_Morales.pdf" target="_blank" class="btn-primary" style="text-decoration:none; justify-content:center; width:100%; font-size:0.9rem; padding:14px;">
+                        📄 Descargar CV (Servido desde GCP Storage)
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" class="social-link-btn">
+                        🔗 Conectar en LinkedIn
+                    </a>
+
+                    <a href="https://github.com/HMorales97/terminal-wsl" target="_blank" class="social-link-btn">
+                        💻 Ver Repositorios en GitHub
+                    </a>
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="certs-panel">
+                    <div class="certs-header">
+                        🛡️ Certificaciones Obtenidas
+                    </div>
+
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <div class="cert-title-row">
+                                <h4>Google AI Essentials</h4>
+                                <span class="cert-tag">Google Certified</span>
+                            </div>
+                            <p class="cert-desc">Fundamentos de Inteligencia Artificial generativa, optimización de prompts y aplicación de herramientas de IA en entornos profesionales.</p>
+                        </div>
+
+                        <div class="cert-item blue-border">
+                            <div class="cert-title-row">
+                                <h4>Curso Práctico de Cloud Computing en AWS</h4>
+                                <span class="cert-tag blue">Platzi</span>
+                            </div>
+                            <p class="cert-desc">Aprendizaje y despliegue de arquitecturas en la nube, gestión de recursos de almacenamiento e infraestructura esencial.</p>
+                        </div>
+
+                        <div class="cert-item blue-border">
+                            <div class="cert-title-row">
+                                <h4>Curso de Cloud Computing y DevOps</h4>
+                                <span class="cert-tag blue">Platzi</span>
+                            </div>
+                            <p class="cert-desc">Comprensión de la cultura DevOps, integración continua, despliegue continuo (CI/CD) y metodologías ágiles de infraestructura.</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- PRÓXIMO OBJETIVO CARD -->
+                <div class="target-card">
+                    <div class="target-header">
+                        <div class="target-title">🎯 PRÓXIMO OBJETIVO</div>
+                        <span class="cert-tag">En Preparación</span>
+                    </div>
+                    <h3 style="color:#fff; font-size:1.3rem; margin-bottom:8px;">Google Associate Cloud Engineer (ACE)</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">
+                        Capacidad demostrada para desplegar aplicaciones, monitorear operaciones y administrar soluciones empresariales en Google Cloud Platform.
+                    </p>
+                </div>
             </div>
         </div>
 
-       <div id="preguntas" class="content-section">
-            <h2 class="section-title">GCP Support Practice Quiz</h2>
-            <p class="description" style="margin-bottom: 20px;">
-                Banco de preguntas técnicas para repasar conceptos clave de Linux, Redes, Cloud Computing y Cultura DevOps. ¡Selecciona una opción para validar tu respuesta!
+        <!-- SECCIÓN: QUIZ -->
+        <div id="quiz" class="content-section">
+            <div class="section-header">
+                <div class="section-tag">SIMULADOR INTERACTIVO</div>
+                <h2 class="section-title">Cuestionario de Práctica GCP</h2>
+            </div>
+
+            <div class="quiz-card">
+                <p style="color: var(--text-muted); margin-bottom: 24px;">
+                    Banco dinámico de 26 conceptos técnicos para preparar tu entrevista de soporte técnico en Google Cloud.
+                </p>
+
+                <div id="quiz-container"></div>
+
+                <button onclick="renderQuiz()" class="btn-secondary" style="margin-top: 20px;">
+                    🔄 Cargar 10 Preguntas Nuevas
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL ARQUITECTURA -->
+    <div class="modal-overlay" id="arch-modal">
+        <div class="modal-body">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-subtitle">DESGLOSE TÉCNICO DE INFRAESTRUCTURA</div>
+            <h2 class="modal-title">¿Cómo está construida esta página?</h2>
+            <p class="modal-desc">
+                Esta plataforma aplica los principios de la arquitectura Serverless y distribución perimetral multi-cloud para garantizar máxima disponibilidad y cero costo de servidores inactivos:
             </p>
 
-            <div id="quiz-container">
+            <div class="arch-grid">
+                <div class="arch-item">
+                    <div class="arch-item-title"><span style="color: #f97316;">📦</span> Amazon S3 Bucket</div>
+                    <div class="arch-item-desc">Almacenamiento de objetos estáticos resiliente configurado con políticas de acceso público seguro y cifrado en reposo.</div>
                 </div>
 
-            <div class="btn-container" style="margin-top: 20px;">
-                <button onclick="reiniciarQuiz()" class="btn btn-secondary">Reiniciar Cuestionario</button>
+                <div class="arch-item">
+                    <div class="arch-item-title"><span style="color: #38bdf8;">⚡</span> CloudFront CDN</div>
+                    <div class="arch-item-desc">Red de distribución global de contenido que sirve el sitio mediante caché en Edge Locations con certificado SSL/TLS (HTTPS).</div>
+                </div>
+
+                <div class="arch-item">
+                    <div class="arch-item-title"><span style="color: #a855f7;">🤖</span> GitHub Actions CI/CD</div>
+                    <div class="arch-item-desc">Pipeline automatizado que detecta cada push en el repositorio y actualiza automáticamente los assets en la nube.</div>
+                </div>
+
+                <div class="arch-item">
+                    <div class="arch-item-title"><span style="color: #00df9a;">☁️</span> GCP Storage (GCS)</div>
+                    <div class="arch-item-desc">Integración multi-cloud para servir objetos, assets de proyectos y el documento CV directamente desde Google Cloud Storage.</div>
+                </div>
             </div>
+
+            <button class="btn-modal-action" onclick="closeModal()">
+                Entendido 🚀
+            </button>
         </div>
-
-        <footer class="card-footer">
-            <p>&copy; 2026 Henry Morales. Todos los derechos reservados.</p>
-            <p class="footer-sub">Optimized for Google Cloud Journey</p>
-        </footer>
-
     </div>
 
-   <script>
-        // Lógica de navegación principal
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-            const links = document.querySelectorAll('.nav-link');
-            links.forEach(link => link.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            window.event.currentTarget.classList.add('active');
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if(target) {
+                target.classList.add('active');
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            if(event && event.target) event.target.classList.add('active');
         }
 
-        // BANCO COMPLETO DE PREGUNTAS SUGERIDAS POR HENRY (26 CONCEPTOS ÚNICOS)
-        const bancoCompletoPreguntas = [
-            { q: "¿Qué es una variable?", options: ["Un espacio en memoria reservado para almacenar un valor dinámico.", "Una constante fija del sistema operativo.", "Un comando para listar directorios."], correct: 0, feedback: "¡Exacto! Almacena datos que cambian durante la ejecución." },
-            { q: "¿Qué es una función?", options: ["Un protocolo de comunicación síncrona.", "Un bloque de código reutilizable que realiza una tarea específica al ser invocado.", "Un tipo de servidor virtual en GCP."], correct: 1, feedback: "¡Correcto! Te permite modularizar y reutilizar lógica." },
-            { q: "Ejemplo de Platform as a Service (PaaS):", options: ["Google Compute Engine", "Google App Engine", "Google Workspace"], correct: 1, feedback: "¡Excelente! App Engine gestiona la infraestructura; tú solo pones el código." },
-            { q: "¿Qué es una Virtual Machine (VM)?", options: ["Un entorno de software que comparte el kernel del Host sin aislar hardware.", "Un software que emula un sistema físico completo con su propio OS independiente.", "Un contenedor Docker optimizado."], correct: 1, feedback: "¡Así es! Corre sobre un hipervisor emulando hardware completo." },
-            { q: "¿Qué es una VPC en networking?", options: ["Una red privada virtual aislada lógicamente dentro de una nube pública.", "Un cable físico de alta velocidad.", "Un protocolo de transferencia de correo electrónico."], correct: 0, feedback: "¡Perfecto! Virtual Private Cloud es tu red aislada en la nube." },
-            { q: "¿Cuál es la diferencia entre contenedor y VM?", options: ["Las VMs son más ligeras porque no virtualizan hardware.", "Los contenedores comparten el kernel del OS host; las VMs aíslan hardware con un OS propio.", "Son sinónimos comerciales."], correct: 1, feedback: "¡Punto clave! Los contenedores son ligeros; las VMs son sistemas completos pesados." },
-            { q: "¿Qué es un contenedor?", options: ["Un paquete ligero con el código y todas sus dependencias para correr en cualquier entorno.", "Un disco duro virtual de alta velocidad.", "Un clúster de servidores físicos."], correct: 0, feedback: "¡Correcto! Docker es el estándar para crearlos." },
-            { q: "¿Qué es un orquestador?", options: ["Una herramienta que compila código Python.", "Un sistema que automatiza el despliegue, escalado y gestión de contenedores (ej. Kubernetes).", "Un balanceador de carga HTTP."], correct: 1, feedback: "¡Exacto! Organiza el ciclo de vida de los contenedores a gran escala." },
-            { q: "¿Qué es Zona y Región en Cloud?", options: ["Una Región es un área geográfica; las Zonas son centros de datos aislados dentro de ella.", "Son sinónimos exactos en Google Cloud.", "Una Zona es el software y la Región el hardware."], correct: 0, feedback: "¡Bien! Diseñar multizona previene caídas por fallos físicos." },
-            { q: "¿Cómo veo en qué directorio de la terminal estoy?", options: ["Con el comando 'ls'", "Con el comando 'pwd'", "Con el comando 'cd ..'"], correct: 1, feedback: "¡Impecable! pwd = Print Working Directory." },
-            { q: "¿Qué hace el comando LS?", options: ["Muestra el uso de la memoria RAM.", "Lista los archivos y subdirectorios dentro del directorio actual.", "Limpia la pantalla de la terminal."], correct: 1, feedback: "¡Correcto! ls = List." },
-            { q: "¿Qué pasa si no me puedo conectar a mi VM por SSH?", options: ["Debes revisar si las reglas de Firewall de la VPC permiten el tráfico entrante en el puerto 22.", "Debes cambiar la IP del DNS de inmediato.", "Debes borrar el repositorio de Git."], correct: 0, feedback: "¡Paso de soporte básico! El puerto 22 bloqueado en el firewall es la causa común." },
-            { q: "¿Qué es CI/CD?", options: ["Un formato de datos para bases de datos NoSQL.", "Integración Continua y Despliegue Continuo; automatiza pruebas y publicaciones de código.", "Un protocolo de seguridad perimetral."], correct: 1, feedback: "¡Espectacular! Tu flujo con GitHub Actions es un claro ejemplo de CI/CD." },
-            { q: "¿Qué es elasticidad y escalabilidad?", options: ["La escalabilidad es crecer ante demanda fija; elasticidad es adaptarse automáticamente subiendo o bajando recursos.", "Son lo mismo pero para nubes diferentes.", "Métodos exclusivos de bases de datos."], correct: 0, feedback: "¡Exacto! Elasticidad implica automatización dinámica en tiempo real." },
-            { q: "¿Qué es Docker?", options: ["Un proveedor de nube pública como AWS.", "Una plataforma de código abierto para automatizar el despliegue de aplicaciones en contenedores.", "Un orquestador de máquinas virtuales."], correct: 1, feedback: "¡Correcto! Permite construir, empaquetar y ejecutar contenedores." },
-            { q: "¿Qué es Jenkins?", options: ["Un servidor de automatización de código abierto para construir pipelines de CI/CD.", "Un motor de base de datos relacional.", "Un lenguaje de programación compilado."], correct: 0, feedback: "¡Así es! Es una de las herramientas de integración continua más usadas." },
-            { q: "¿Qué es código JSON?", options: ["Un lenguaje de consultas de bases de datos físicas.", "Un formato ligero de intercambio de datos estructurado en parejas de clave-valor, legible para humanos.", "Un script de automatización de Bash."], correct: 1, feedback: "¡Perfecto! JavaScript Object Notation se usa masivamente en APIs." },
-            { q: "¿Qué es una API y una API Call?", options: ["Un protocolo de hardware para conectar discos.", "Una interfaz que permite a dos softwares comunicarse, y la 'call' es la solicitud enviada para pedir datos.", "Un formato de logs estructurados."], correct: 1, feedback: "¡Correcto! Application Programming Interface." },
-            { q: "¿Qué son los Logs?", options: ["Registros cronológicos de eventos, errores o transacciones que ocurren en un sistema o aplicación.", "Archivos binarios encriptados que no se pueden borrar.", "Comandos de Linux para compilar."], correct: 0, feedback: "¡Vital en soporte! Los logs son tu primera herramienta para diagnosticar fallas." },
-            { q: "¿Qué es un Pipeline?", options: ["Un conjunto de pasos automatizados por los que pasa el código desde que se escribe hasta producción.", "Una conexión de red física entre dos zonas.", "Un script de Linux para limpiar caché."], correct: 0, feedback: "¡Exacto! Define las fases de tu flujo de CI/CD." },
-            { q: "¿Qué es PaaS, SaaS e IaaS?", options: ["PaaS ofrece software final; SaaS infraestructura; IaaS plataformas de desarrollo.", "Modelos de servicio cloud: IaaS da infraestructura bruta, PaaS da la plataforma para código, SaaS da el software final.", "Protocolos de ruteo de red."], correct: 1, feedback: "¡Esencial de examen! Entender los niveles de responsabilidad en la nube." },
-            { q: "¿Qué es un registro CNAME?", options: ["Un mapeo directo de un dominio a una dirección IPv4 estática.", "Un alias de DNS que apunta un nombre de dominio hacia otro nombre de dominio.", "Un registro exclusivo para servidores de correo electrónico."], correct: 1, feedback: "¡Perfecto! Canonical Name es un alias." },
-            { q: "En redes, ¿qué es NAT?", options: ["Network Address Translation; traduce IPs privadas a una pública para dar salida segura a internet.", "Un firewall de capa 7 enfocado en HTTP.", "Un sistema de asignación dinámica de nombres."], correct: 0, feedback: "¡Excelente! Permite que tu subred privada navegue sin exponerse." },
-            { q: "¿Qué es un Firewall?", options: ["Un sistema de seguridad de red que monitorea y filtra el tráfico entrante y saliente basado en reglas.", "Un cable que previene sobrecalentamiento en data centers.", "Un software para acelerar descargas de Git."], correct: 0, feedback: "¡Exacto! Controla los accesos bloqueando o permitiendo puertos." },
-            { q: "¿Qué es el DNS?", options: ["El sistema que traduce nombres de dominio legibles a direcciones IP para que las computadoras se comuniquen.", "Un protocolo para subir archivos HTML a S3.", "Un firewall para bases de datos."], correct: 0, feedback: "¡Así es! Es el directorio telefónico de internet." },
-            { q: "¿Diferencia entre Red Privada y Red Pública?", options: ["La pública es accesible desde internet; la privada requiere NAT, VPN o accesos internos y no se expone directamente.", "La privada es gratis y la pública de pago.", "No hay diferencia, ambas usan las mismas IPs públicas."], correct: 0, feedback: "¡Punto clave! La red privada protege tus bases de datos y servidores lógicos." }
+        function openModal() { document.getElementById('arch-modal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('arch-modal').style.display = 'none'; }
+
+        // CANVAS
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h;
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const dots = Array.from({ length: 65 }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: Math.random() * 1.5 + 0.5,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35
+        }));
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = 'rgba(0, 223, 154, 0.35)';
+            dots.forEach(d => {
+                d.x += d.vx; d.y += d.vy;
+                if(d.x < 0 || d.x > w) d.vx *= -1;
+                if(d.y < 0 || d.y > h) d.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        // BANCO DE 26 PREGUNTAS
+        const questionsBank = [
+            { q: "¿Qué es una variable?", ops: ["Espacio en memoria reservado para almacenar un valor dinámico.", "Una constante fija del sistema operativo.", "Un comando para listar directorios."], correct: 0, feedback: "¡Exacto! Almacena datos que cambian durante la ejecución." },
+            { q: "¿Qué es una función?", ops: ["Un protocolo de comunicación síncrona.", "Un bloque de código reutilizable que realiza una tarea específica.", "Un tipo de servidor virtual en GCP."], correct: 1, feedback: "¡Correcto! Te permite modularizar y reutilizar lógica." },
+            { q: "Ejemplo de Platform as a Service (PaaS):", ops: ["Google Compute Engine", "Google App Engine", "Google Workspace"], correct: 1, feedback: "¡Excelente! App Engine gestiona la infraestructura; tú solo pones el código." },
+            { q: "¿Qué es una Virtual Machine (VM)?", ops: ["Un software que emula un sistema físico completo con su propio OS.", "Un entorno que comparte el kernel del Host sin aislar hardware.", "Un contenedor Docker optimizado."], correct: 0, feedback: "¡Así es! Corre sobre un hipervisor emulando hardware completo." },
+            { q: "¿Qué es una VPC en networking?", ops: ["Una red privada virtual aislada lógicamente dentro de una nube pública.", "Un cable físico de alta velocidad.", "Un protocolo de transferencia de correo."], correct: 0, feedback: "¡Perfecto! Virtual Private Cloud es tu red aislada en la nube." },
+            { q: "¿Cuál es la diferencia entre contenedor y VM?", ops: ["Las VMs son más ligeras porque no virtualizan hardware.", "Los contenedores comparten el kernel del Host; las VMs aíslan hardware completo.", "Son sinónimos comerciales."], correct: 1, feedback: "¡Punto clave! Los contenedores son ligeros; las VMs aíslan sistemas pesados." },
+            { q: "¿Qué es un contenedor?", ops: ["Un paquete ligero con el código y todas sus dependencias.", "Un disco duro virtual de alta velocidad.", "Un clúster de servidores físicos."], correct: 0, feedback: "¡Correcto! Docker es el estándar para crearlos." },
+            { q: "¿Qué es un orquestador?", ops: ["Una herramienta que compila código.", "Un sistema que automatiza el despliegue, escalado y gestión de contenedores (ej. Kubernetes).", "Un balanceador de carga HTTP."], correct: 1, feedback: "¡Exacto! Organiza el ciclo de vida de los contenedores a gran escala." },
+            { q: "¿Qué es Zona y Región en Cloud?", ops: ["Una Región es un área geográfica; las Zonas son centros de datos aislados dentro de ella.", "Son sinónimos exactos en Google Cloud.", "Una Zona es software y la Región hardware."], correct: 0, feedback: "¡Bien! Diseñar multizona previene caídas por fallos físicos." },
+            { q: "¿Cómo veo en qué directorio de la terminal estoy?", ops: ["Con el comando 'ls'", "Con el comando 'pwd'", "Con el comando 'cd ..'"], correct: 1, feedback: "¡Impecable! pwd = Print Working Directory." },
+            { q: "¿Qué hace el comando LS?", ops: ["Muestra la memoria RAM.", "Lista los archivos y subdirectorios dentro del directorio actual.", "Limpia la pantalla de la terminal."], correct: 1, feedback: "¡Correcto! ls = List." },
+            { q: "¿Qué pasa si no me puedo conectar a mi VM por SSH?", ops: ["Revisar si las reglas de Firewall de la VPC permiten tráfico en el puerto 22.", "Cambiar la IP del DNS de inmediato.", "Borrar el repositorio de Git."], correct: 0, feedback: "¡Paso de soporte básico! El puerto 22 bloqueado es la causa común." },
+            { q: "¿Qué es CI/CD?", ops: ["Un formato de bases de datos NoSQL.", "Integración Continua y Despliegue Continuo; automatiza pruebas y publicaciones.", "Un protocolo de seguridad perimetral."], correct: 1, feedback: "¡Espectacular! Tu flujo con GitHub Actions es un claro ejemplo." },
+            { q: "¿Qué es elasticidad y escalabilidad?", ops: ["Escalabilidad es crecer ante demanda; elasticidad es adaptarse automáticamente subiendo o bajando recursos.", "Son lo mismo pero para nubes diferentes.", "Métodos exclusivos de bases de datos."], correct: 0, feedback: "¡Exacto! Elasticidad implica automatización dinámica en tiempo real." },
+            { q: "¿Qué es Docker?", ops: ["Un proveedor de nube pública.", "Una plataforma de código abierto para automatizar el despliegue de aplicaciones en contenedores.", "Un orquestador de máquinas virtuales."], correct: 1, feedback: "¡Correcto! Permite construir, empaquetar y ejecutar contenedores." },
+            { q: "¿Qué es Jenkins?", ops: ["Un servidor de automatización de código abierto para construir pipelines de CI/CD.", "Un motor de base de datos relacional.", "Un lenguaje de programación."], correct: 0, feedback: "¡Así es! Una de las herramientas de integración continua más usadas." },
+            { q: "¿Qué es código JSON?", ops: ["Un lenguaje de consultas.", "Un formato ligero de intercambio de datos estructurado en parejas clave-valor.", "Un script de automatización de Bash."], correct: 1, feedback: "¡Perfecto! JavaScript Object Notation se usa masivamente en APIs." },
+            { q: "¿Qué es una API y una API Call?", ops: ["Un protocolo de hardware.", "Una interfaz que permite a dos softwares comunicarse, y la 'call' es la solicitud enviada.", "Un formato de logs estructurados."], correct: 1, feedback: "¡Correcto! Application Programming Interface." },
+            { q: "¿Qué son los Logs?", ops: ["Registros cronológicos de eventos, errores o transacciones que ocurren en un sistema.", "Archivos binarios encriptados que no se pueden borrar.", "Comandos de Linux para compilar."], correct: 0, feedback: "¡Vital en soporte! Los logs son tu primera herramienta para diagnosticar." },
+            { q: "¿Qué es un Pipeline?", ops: ["Un conjunto de pasos automatizados por los que pasa el código hacia producción.", "Una conexión de red física entre dos zonas.", "Un script de Linux para limpiar caché."], correct: 0, feedback: "¡Exacto! Define las fases de tu flujo de CI/CD." },
+            { q: "¿Qué es PaaS, SaaS e IaaS?", ops: ["PaaS ofrece software final; SaaS infraestructura; IaaS plataformas.", "IaaS da infraestructura bruta, PaaS la plataforma para código, SaaS el software final.", "Protocolos de ruteo de red."], correct: 1, feedback: "¡Esencial de examen! Entender los niveles de responsabilidad en la nube." },
+            { q: "¿Qué es un registro CNAME?", ops: ["Un mapeo directo de un dominio a una IP IPv4.", "Un alias de DNS que apunta un nombre de dominio hacia otro nombre de dominio.", "Un registro exclusivo para correo."], correct: 1, feedback: "¡Perfecto! Canonical Name es un alias." },
+            { q: "En redes, ¿qué es NAT?", ops: ["Network Address Translation; traduce IPs privadas a una pública para salida segura.", "Un firewall de capa 7 para HTTP.", "Un sistema de asignación de nombres."], correct: 0, feedback: "¡Excelente! Permite que tu subred privada navegue sin exponerse." },
+            { q: "¿Qué es un Firewall?", ops: ["Un sistema de seguridad de red que monitorea y filtra el tráfico según reglas.", "Un cable que previene sobrecalentamiento.", "Un software para acelerar descargas."], correct: 0, feedback: "¡Exacto! Controla los accesos bloqueando o permitiendo puertos." },
+            { q: "¿Qué es el DNS?", ops: ["El sistema que traduce nombres de dominio legibles a direcciones IP.", "Un protocolo para subir archivos HTML.", "Un firewall para bases de datos."], correct: 0, feedback: "¡Así es! Es el directorio telefónico de internet." },
+            { q: "¿Diferencia entre Red Privada y Red Pública?", ops: ["La pública es accesible desde internet; la privada no se expone directamente.", "La privada es gratis y la pública de pago.", "No hay diferencia, usan las mismas IPs."], correct: 0, feedback: "¡Punto clave! La red privada protege tus recursos internos." }
         ];
 
-        // Lista de 10 preguntas seleccionadas para la ronda actual
-        let preguntasActuales = [];
+        let currentQuizSet = [];
 
-        // Algoritmo de Fisher-Yates para barajar el banco y elegir 10 al azar
-        function seleccionarPreguntasAleatorias() {
-            // Copiamos el banco original para no destruirlo
-            let copia = [...bancoCompletoPreguntas];
-            
-            // Barajamos la copia completa
-            for (let i = copia.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [copia[i], copia[j]] = [copia[j], copia[i]];
-            }
-            
-            // Extraemos únicamente las primeras 10 preguntas resultantes
-            preguntasActuales = copia.slice(0, 10);
-        }
-
-        // Función para renderizar las 10 preguntas aleatorias en pantalla
-        function inicializarQuiz() {
+        function renderQuiz() {
             const container = document.getElementById('quiz-container');
-            container.innerHTML = ''; // Limpiar la interfaz anterior
+            container.innerHTML = '';
 
-            // 1. Escogemos una tanda nueva de 10 al azar
-            seleccionarPreguntasAleatorias();
+            const shuffle = [...questionsBank].sort(() => 0.5 - Math.random());
+            currentQuizSet = shuffle.slice(0, 10);
 
-            // 2. Las pintamos en el HTML
-            preguntasActuales.forEach((item, indexPregunta) => {
+            currentQuizSet.forEach((item, qIdx) => {
+                const box = document.createElement('div');
+                box.className = 'quiz-box';
+
                 let optionsHTML = '';
-                item.options.forEach((opcion, indexOpcion) => {
+                item.ops.forEach((op, oIdx) => {
                     optionsHTML += `
-                        <button class="option-btn" onclick="verificarRespuesta(this, ${indexPregunta}, ${indexOpcion})">
-                            ${opcion}
+                        <button class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx})">
+                            ${op}
                         </button>
                     `;
                 });
 
-                const quizBox = `
-                    <div class="quiz-box" id="box-${indexPregunta}">
-                        <div class="quiz-question">${indexPregunta + 1}. ${item.q}</div>
-                        <div class="quiz-options">
-                            ${optionsHTML}
-                        </div>
-                        <div class="quiz-feedback" id="feedback-${indexPregunta}">${item.feedback}</div>
-                    </div>
+                box.innerHTML = `
+                    <div class="quiz-question">${qIdx + 1}. ${item.q}</div>
+                    <div>${optionsHTML}</div>
+                    <div class="quiz-feedback" id="quiz-fb-${qIdx}">${item.feedback}</div>
                 `;
-                container.innerHTML += quizBox;
+                container.appendChild(box);
             });
         }
 
-        // Función para evaluar las respuestas cliqueadas
-        function verificarRespuesta(btn, idxPregunta, idxOpcion) {
-            const padre = btn.parentElement;
-            const botones = padre.querySelectorAll('.option-btn');
-            const feedbackBlock = document.getElementById(`feedback-${idxPregunta}`);
-            const respuestaCorrecta = preguntasActuales[idxPregunta].correct;
+        function checkQuizAnswer(btn, qIdx, selectedIdx) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-opt');
+            const feedbackEl = document.getElementById(`quiz-fb-${qIdx}`);
+            const correctIdx = currentQuizSet[qIdx].correct;
 
-            // Bloquear los botones de esta pregunta específica
-            botones.forEach(b => b.disabled = true);
+            buttons.forEach(b => b.disabled = true);
 
-            if (idxOpcion === respuestaCorrecta) {
+            if (selectedIdx === correctIdx) {
                 btn.classList.add('correct');
             } else {
                 btn.classList.add('incorrect');
-                botones[respuestaCorrecta].classList.add('correct');
+                buttons[correctIdx].classList.add('correct');
             }
 
-            // Mostrar el texto de retroalimentación
-            feedbackBlock.style.display = 'block';
+            feedbackEl.style.display = 'block';
         }
 
-        function reiniciarQuiz() {
-            inicializarQuiz();
-            // Scroll suave hacia arriba de la tarjeta para volver a empezar
-            document.querySelector('.portfolio-card').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Iniciar automáticamente al cargar el sitio
-        inicializarQuiz();
+        renderQuiz();
     </script>
-
 </body>
 </html>
