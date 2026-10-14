@@ -1,0 +1,132 @@
+:root{
+  --deep:#1a0638; --mid:#4a1a8c; --glow:#8a3fd6; --lilac:#d9b8ff;
+  --ink:#12062a; --lime:#c6f68d; --white:#fff; --bad:#ff9db0;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{
+  font-family:'Sora',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--white); background:var(--deep); overflow-x:hidden;
+}
+[hidden]{display:none !important}
+:focus-visible{outline:3px solid var(--lime); outline-offset:3px}
+
+/* Escena */
+.scene{
+  position:relative; min-height:100%; display:flex; flex-direction:column;
+  background:radial-gradient(ellipse at 50% 55%, #7b35c9 0%, #4a1a8c 38%, #1a0638 78%), var(--deep);
+  isolation:isolate; overflow:hidden;
+}
+.rocks{position:fixed; inset:0; width:100%; height:100%; z-index:-1}
+.float{animation:drift 9s ease-in-out infinite alternate}
+.float.b{animation-duration:12s; animation-delay:-3s}
+.float.c{animation-duration:15s; animation-delay:-6s}
+@keyframes drift{from{transform:translateY(-10px) rotate(-2deg)}to{transform:translateY(12px) rotate(2deg)}}
+
+/* Encabezado y menú */
+header{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:24px 32px}
+.brand{font-weight:700; font-size:1.25rem; letter-spacing:-.02em; color:inherit; text-decoration:none}
+.brand small{font-weight:400; opacity:.8; margin-left:.35em}
+nav{display:flex; gap:6px; background:rgba(18,6,42,.55); padding:6px; border-radius:999px; backdrop-filter:blur(8px)}
+nav a{
+  color:var(--white); text-decoration:none; font-size:.92rem; padding:9px 18px; border-radius:999px;
+  transition:background .2s;
+}
+nav a:hover{background:rgba(255,255,255,.14)}
+nav a[aria-current="page"]{background:var(--white); color:var(--ink); font-weight:600}
+
+/* Vistas */
+.view{flex:1; display:flex; flex-direction:column; align-items:center; padding:24px 20px 56px}
+.view.hero{justify-content:center; text-align:center}
+h1{font-size:clamp(2.2rem,6.4vw,5.2rem); line-height:1.02; letter-spacing:-.04em; font-weight:600; max-width:15em}
+.lead{margin-top:24px; font-size:clamp(1rem,1.7vw,1.3rem); line-height:1.55; max-width:44rem; color:#f0e3ff}
+.lead strong{font-weight:600; color:var(--white)}
+
+.stack{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:32px; list-style:none; padding:0}
+.stack li{
+  background:rgba(18,6,42,.55); border:1px solid rgba(217,184,255,.35); border-radius:14px;
+  padding:12px 18px; font-size:.92rem; text-align:left; backdrop-filter:blur(6px);
+}
+.stack b{display:block; font-size:1rem; margin-bottom:2px}
+.stack span{opacity:.8; font-size:.82rem}
+
+.cta{
+  margin-top:36px; display:inline-flex; align-items:center; gap:22px; cursor:pointer;
+  background:var(--ink); color:var(--white); border:0; border-radius:16px;
+  padding:14px 14px 14px 26px; font:600 1rem 'Sora',system-ui,sans-serif;
+  transition:transform .2s, box-shadow .2s;
+}
+.cta:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.cta .arrow{display:grid; place-items:center; width:46px; height:46px; border-radius:10px; background:var(--white); color:var(--ink)}
+
+/* Tarjeta genérica (acerca de mí / preguntas) */
+.card{
+  width:min(760px,100%); background:rgba(18,6,42,.78); border:1px solid rgba(217,184,255,.25);
+  border-radius:24px; padding:clamp(24px,4vw,40px); backdrop-filter:blur(10px);
+  box-shadow:0 30px 80px rgba(0,0,0,.35); line-height:1.6;
+}
+.card h2{font-size:clamp(1.6rem,3.4vw,2.3rem); letter-spacing:-.03em; line-height:1.1}
+.card .role{margin-top:6px; color:var(--lilac); font-size:1.02rem}
+.card p{margin-top:18px; color:#efe4ff}
+.card h3{margin-top:30px; font-size:1.05rem; letter-spacing:-.01em}
+.badge{
+  display:inline-flex; align-items:center; gap:10px; margin-top:12px; padding:12px 18px;
+  background:rgba(198,246,141,.12); border:1px solid rgba(198,246,141,.5); border-radius:14px; font-size:.95rem;
+}
+.badge i{width:9px; height:9px; border-radius:50%; background:var(--lime); box-shadow:0 0 8px var(--lime); flex:none}
+.badge small{display:block; opacity:.75; font-size:.8rem}
+.courses{list-style:none; padding:0; margin-top:12px; display:grid; gap:10px}
+.courses li{
+  padding:12px 16px; border-radius:12px; background:rgba(255,255,255,.07);
+  display:flex; justify-content:space-between; gap:12px; align-items:center; font-size:.95rem;
+}
+.courses span{font-size:.78rem; color:var(--lime); white-space:nowrap}
+
+/* Quiz */
+.quiz-top{display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:.9rem; color:var(--lilac)}
+.bar{height:6px; border-radius:99px; background:rgba(255,255,255,.15); margin-top:10px; overflow:hidden}
+.bar div{height:100%; width:0; background:var(--lime); transition:width .3s}
+.q{margin-top:26px; font-size:clamp(1.15rem,2.4vw,1.5rem); font-weight:600; line-height:1.3; letter-spacing:-.02em}
+.opts{display:grid; gap:10px; margin-top:22px}
+.opt{
+  text-align:left; cursor:pointer; color:var(--white); font:400 .96rem/1.45 'Sora',system-ui,sans-serif;
+  background:rgba(255,255,255,.07); border:1.5px solid rgba(217,184,255,.3); border-radius:14px; padding:14px 16px;
+  transition:background .15s, border-color .15s;
+}
+.opt:hover:not(:disabled){background:rgba(255,255,255,.14); border-color:var(--lilac)}
+.opt:disabled{cursor:default}
+.opt.ok{background:rgba(198,246,141,.18); border-color:var(--lime)}
+.opt.no{background:rgba(255,157,176,.16); border-color:var(--bad)}
+.fb{margin-top:16px; font-size:.95rem; min-height:1.4em}
+.btn{
+  margin-top:20px; background:var(--white); color:var(--ink); border:0; border-radius:12px; cursor:pointer;
+  padding:12px 22px; font:600 .95rem 'Sora',system-ui,sans-serif;
+}
+.score{font-size:clamp(2.4rem,7vw,4rem); font-weight:700; letter-spacing:-.04em; margin-top:12px}
+
+/* Ventana "cómo fue hecha" */
+dialog{
+  margin:auto; width:min(640px,92vw); border:0; border-radius:22px; padding:32px;
+  background:var(--ink); color:var(--white); box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+dialog::backdrop{background:rgba(10,2,25,.7); backdrop-filter:blur(4px)}
+dialog h2{font-size:1.5rem; letter-spacing:-.02em; margin-bottom:6px}
+dialog p.sub{opacity:.75; font-size:.95rem; margin-bottom:22px; line-height:1.5}
+ol{list-style:none; padding:0; display:grid; gap:14px; counter-reset:s}
+ol li{counter-increment:s; display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:start; font-size:.94rem; line-height:1.5}
+ol li::before{
+  content:counter(s); display:grid; place-items:center; width:34px; height:34px; border-radius:50%;
+  background:var(--glow); font-weight:700; font-size:.9rem;
+}
+ol li b{display:block}
+ol li span{opacity:.78}
+
+footer{text-align:center; padding:0 20px 24px; font-size:.8rem; opacity:.65}
+
+@media (max-width:640px){
+  header{padding:18px 16px; justify-content:center}
+  nav a{padding:8px 12px; font-size:.85rem}
+  .cta{gap:16px}
+  .courses li{flex-direction:column; align-items:flex-start; gap:4px}
+}
+@media (prefers-reduced-motion:reduce){.float{animation:none}.cta,.bar div{transition:none}}
